@@ -75,6 +75,7 @@ GEM
       retriable (~> 1.4)
       signet (~> 0.6)
     hashie (3.4.3)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -226,6 +227,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   google-api-client (= 0.8.2)
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   koala (~> 2.2)

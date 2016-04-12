@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
   def create
     # begin
-      token = request.env['omniauth.auth']['credentials']['token']
       provider = request.env['omniauth.auth']['provider']
-      uid = request.env['omniauth.auth']['uid']
-      @user = User.from_omniauth(provider, token)
+      token = request.env['omniauth.auth']['credentials']['token']
+      secret = request.env['omniauth.auth']['credentials']['secret']
+      # uid = request.env['omniauth.auth']['uid']
+      # puts request.env['omniauth.auth']
+      @user = User.from_omniauth(provider, token, secret)
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.name}!"
     # rescue

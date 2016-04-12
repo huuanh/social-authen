@@ -1,0 +1,31 @@
+<h1>Social Network Authentication</h1>
+
+<% if current_user %>
+    <%= link_to 'logout', logout_path, method: :delete %>
+<% end %>
+
+<%= link_to 'facebook', '/auth/facebook' %>
+<%= link_to 'google', '/auth/google_oauth2' %>
+<%= link_to 'twitter', '/auth/twitter' %>
+<%= link_to 'wechat', '/auth/wechat' %>
+
+<% if current_user %>
+    <div class="page-header">
+      <h1>Here is some info about you...</h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          <li><strong>Name:</strong> <%= current_user.name %></li>
+          <li><strong>Provider:</strong> <%= current_user.provider %></li>
+          <li><strong>uID:</strong> <%= current_user.uid %></li>
+          <li><strong>Location:</strong> <%= current_user.location %></li>
+          <li><strong>Avatar URL:</strong> <%= current_user.image_url %></li>
+          <li><strong>URL:</strong> <%= current_user.url %></li>
+          <li><strong>EMAIL:</strong> <%= current_user.email %></li>
+          <li><strong>TOKEN:</strong> <%= current_user.token %></li>
+          <li><strong>SECRET:</strong> <%= current_user.token_secret %></li>
+        </ul>
+      </div>
+    </div>
+<% end %>
